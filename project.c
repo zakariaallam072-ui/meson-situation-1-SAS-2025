@@ -13,6 +13,7 @@ int indix = 0 ,i;
 struct produits produit[100] ;
 
 void menu();
+void menu_Categorie();
 void ajouter();
 void Afficher();
 void rechercher();
@@ -59,15 +60,36 @@ void menu(){
     printf(" 7. Quitter le programme. \n");
     printf(" entrer votre choi : ");
 }
+void menu_Categorie(){
+    printf(" 1. pour smartphone \n");
+    printf(" 2. pour ordinateur \n");
+    printf(" 3. pour accessoire \n");
+    printf(" entrer votre choi ; ");
+}
 void ajouter(){
+    int choi_categorie;
     printf("entrer le nom : ");
     scanf("%s",&produit[indix].nom);
     printf("entrer le prix : ");
     scanf("%f",&produit[indix].prix);
     printf("entrer le quantite : ");
     scanf("%d",&produit[indix].quantite);
-    printf("entrer le categorie : ");
-    scanf("%d",&produit[indix].categorie);
+    printf("\n");
+    printf("entre le Catégorie\n");
+    do{
+    menu_Categorie();
+    scanf("%d",&choi_categorie);
+    switch(choi_categorie){
+         case 1 : produit[indix].categorie = 1;
+         break;
+         case 2 : produit[indix].categorie = 2;
+         break;
+         case 3 : produit[indix].categorie = 3;
+         break;
+         default: printf("entrer one choi \n");
+         break;
+    }
+    }while(choi_categorie>0 && choi_categorie>4);
     indix++;
 }
 
