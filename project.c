@@ -7,19 +7,21 @@ struct produits {
     int quantite;
     int categorie;
 };
-
+int indix = 0 ,i;
 struct produits produit[100] ;
 
 void menu();
+void ajouter();
+void Afficher();
 int main() {
     int choi;
     do{
      menu();
      scanf("%d",&choi);
      switch(choi){
-         case 1 :
+         case 1 : ajouter();
          break;
-          case 2 :
+          case 2 : Afficher();
          break;
           case 3 :
          break;
@@ -48,4 +50,25 @@ void menu(){
     printf(" 6. Supprimer un produit \n");
     printf(" 7. Quitter le programme. \n");
     printf(" entrer votre choi : ");
+}
+void ajouter(){
+    printf("entrer le nom : ");
+    scanf("%s",&produit[indix].nom);
+    printf("entrer le prix : ");
+    scanf("%f",&produit[indix].prix);
+    printf("entrer le quantite : ");
+    scanf("%d",&produit[indix].quantite);
+    printf("entrer le categorie : ");
+    scanf("%d",&produit[indix].categorie);
+    indix++;
+}
+
+void Afficher(){
+    for(i=0;i<indix;i++){
+        printf("--------- produit nombre %d-------\n",i+1);
+    printf(" nom : %s\n",produit[i].nom);
+    printf("prix : %f\n",produit[i].prix);
+    printf("quantite : %d\n",produit[i].quantite);
+    printf(" categorie : %d\n\n",produit[i].categorie);
+    }
 }
