@@ -17,6 +17,8 @@ void ajouter();
 void Afficher();
 void rechercher();
 void modifier();
+void calcule_valur_total(float mult);
+void suprimier();
 int main() {
     int choi;
     do{
@@ -31,9 +33,11 @@ int main() {
          break;
           case 4 : modifier();
          break;
-          case 5 :
+          case 5 : 
+          float mult;
+          calcule_valur_total(mult);
          break;
-          case 6 :
+          case 6 :  suprimier();
          break;
           case 7 : printf("Merci!!!");
          break;
@@ -115,5 +119,32 @@ void modifier(){
         if(!sort){
         printf(" the nom is not here\n");
     }
+}
+}
+void calcule_valur_total(float mult){
+    
+    for(i=0;i<indix;i++){
+        printf(" totale de product numbre %d \n",i+1);
+        mult = produit[i].quantite * produit[i].prix;
+        printf(" total : %.2f\n\n",mult);
+    }
+    
+}
+
+void suprimier(){
+        char name_suprimier[50];
+    int sort = false;
+    printf("entrer le name de produit pour suprimier[50] : ");
+    scanf("%s",name_suprimier);
+    for(i=0;i<indix;i++){
+        if(strcmp(name_suprimier,produit[i].nom) == 0){
+            for(int j=i;j<indix-1;j++){
+                produit[j] = produit[j+1];
+            }
+        }
+    }
+    if(!sort){
+        printf(" the nom is not here\n");
+        indix--;
 }
 }
